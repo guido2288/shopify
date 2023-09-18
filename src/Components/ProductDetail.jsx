@@ -32,7 +32,7 @@ const ProductDetail = () => {
         <p className='flex justify-between items-center'><span className='font-bold'>{productToShow.title}</span><span className='font-bold text-[20px]'>$ {productToShow.price}</span></p>
 
 
-        <span className='text-black/60'>{productToShow.description}</span>
+        <span className='text-black/60 text-[14px]'>{productToShow.description}</span>
 
       </div>
     </aside>

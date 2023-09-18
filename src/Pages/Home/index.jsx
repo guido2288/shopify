@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import Card from '../../Components/Card'
+import CheckOutSideMenu from '../../Components/CheckOutSideMenu'
 import Layout from '../../Components/Layout'
 import ProductDetail from '../../Components/ProductDetail'
 
@@ -27,6 +28,7 @@ const Home = () => {
 
       </div>
       <ProductDetail />
+      <CheckOutSideMenu />
     </Layout>
   )
 }

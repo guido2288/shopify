@@ -8,6 +8,7 @@ import MyOrder from '../MyOrder';
 import MyOrders from '../Myorders';
 import NotFound from '../NotFound';
 import SigIn from '../Signin';
+import CheckOutSideMenu from '../../Components/CheckOutSideMenu';
 import '../../App.css';
 
 const AppRoutes = () => {
@@ -25,6 +26,8 @@ const AppRoutes = () => {
 }
 
 function App() {
+
+  console.log(CheckOutSideMenu)
 
   return (
     <ShoppingCartProvider>
