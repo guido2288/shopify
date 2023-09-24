@@ -1,5 +1,6 @@
 import React from 'react'
 import { useContext } from 'react'
+import { Link } from 'react-router-dom';
 import { ShoppingCartContext } from '../Context'
 import { totalPrice } from '../utils';
 import OrderCard from './OrderCard';
@@ -7,11 +8,25 @@ import OrderCard from './OrderCard';
 
 const CheckOutSideMenu = () => {
 
-  const { isCheckOutSideOpen, closeCheckOutSide, cartProducts, setCartProducts } = useContext(ShoppingCartContext);
+  const { isCheckOutSideOpen, closeCheckOutSide, cartProducts, setCartProducts, setOrder, order } = useContext(ShoppingCartContext);
 
   const handleDelete = (id) => {
     const filteredProducts = cartProducts.filter(product => product.id !== id);
     setCartProducts(filteredProducts);
+  }
+
+  const handleCheckout = () => {
+    const date = new Date();
+
+    const orderToAdd = {
+      date: date.toLocaleDateString(),
+      products: cartProducts,
+      totalProducts: cartProducts.length,
+      totalPrice: totalPrice(cartProducts)
+    };
+
+    setOrder([...order, orderToAdd]);
+    setCartProducts([])
   }
 
   return (
@@ -30,7 +45,7 @@ const CheckOutSideMenu = () => {
 
       </div>
 
-      <div>
+      <div className='flex-1'>
         {
           cartProducts.map((product) => (
 
@@ -49,8 +64,15 @@ const CheckOutSideMenu = () => {
       <div className='px-4 py-6'>
         <p className='flex justify-between items-center'>
           <span className='text-lg font-light'>Total:</span>
-          <span className='text-lg font-bold text-xl'>${totalPrice(cartProducts)}</span>
+          <span className='text-lg font-bold'>${totalPrice(cartProducts)}</span>
         </p>
+        <Link to="/my-orders/last">
+          <button
+            onClick={() => handleCheckout()}
+            className="w-full bg-black py-3 text-white mt-2 rounded-lg"
+          >Checkout</button>
+
+        </Link>
       </div>
 
     </aside>

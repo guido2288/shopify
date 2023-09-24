@@ -39,8 +39,8 @@ const Card = ({ data }) => {
           className='p-1 absolute top-0 right-0 flex justify-center items-center bg-[#3B82F6] w-6 h-6 m-2 rounded-full'
           onClick={() => addProductsToCart(data)}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" color='#fff'>
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6" color='#fff'>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
           </svg>
         </div>
       )
